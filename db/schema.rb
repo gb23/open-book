@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180124183452) do
     t.text "text"
     t.integer "votes"
     t.integer "next_ids", array: true
+    t.integer "prev_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

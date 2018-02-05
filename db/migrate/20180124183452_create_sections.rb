@@ -4,7 +4,7 @@ class CreateSections < ActiveRecord::Migration[5.1]
       t.text :text
       t.integer :votes
       t.integer :next_ids, :array => true
-
+      t.integer :prev_id
       t.timestamps
     end
   end
