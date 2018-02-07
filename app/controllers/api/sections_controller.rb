@@ -2,13 +2,20 @@ class Api::SectionsController < ApplicationController
     before_action :set_section, only:[:show, :update, :destroy]
 
     def index
-        render json: Section.all
+        render json: Section.all.sort
     end
 
     def create
         section = Section.new(section_params)
+        sectionPrev = Section.find_by(id: section.prev_id)
+
         if section.save
-            render json: section
+            sectionPrev.next_ids << section.id
+            if sectionPrev.next_ids[0] == -1
+                sectionPrev.next_ids.shift
+            end
+            sectionPrev.save
+            render json: {section: section, sectionPrev: sectionPrev}
         else
             render json: { message: section.errors}, status: 400
         end
@@ -42,6 +49,6 @@ class Api::SectionsController < ApplicationController
         end
 
         def section_params
-            params.require(:section).permit(:text, :votes, :next_ids => [])
+            params.require(:section).permit(:text, :votes, :prev_id, :next_ids => [], )
         end
 end 
