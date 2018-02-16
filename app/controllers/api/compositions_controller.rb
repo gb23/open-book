@@ -1,0 +1,54 @@
+class Api::CompositionsController < ApplicationController
+    # before_action :set_section, only:[:show, :update, :destroy]
+
+    # def index
+    #     render json: Section.all.sort
+    # end
+
+    # def create
+    #     section = Section.new(section_params)
+    #     sectionPrev = Section.find_by(id: section.prev_id)
+
+    #     if section.save
+    #         sectionPrev.next_ids << section.id
+    #         if sectionPrev.next_ids[0] == -1
+    #             sectionPrev.next_ids.shift
+    #         end
+    #         sectionPrev.save
+    #         render json: {section: section, sectionPrev: sectionPrev}
+    #     else
+    #         render json: { message: section.errors}, status: 400
+    #     end
+    # end
+
+    # def show
+    #     render json: @section
+    # end
+
+    # def update
+    #     if @section.update(section_params)
+    #         render json: @section
+    #     else
+    #         render json: { message: @section.errors}, status: 400
+    #     end
+    # end
+
+    # def destroy
+    #     if @section.destroy
+    #         render status: 204
+    #     else
+    #         render json: { message: "Unable to remove this section"}, status: 400
+    #     end
+    # end
+
+
+    # private
+
+    #     def set_section 
+    #         @section = Section.find_by(id: params[:id])
+    #     end
+
+    #     def section_params
+    #         params.require(:section).permit(:text, :votes, :prev_id, :next_ids => [], )
+    #     end
+end 

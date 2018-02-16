@@ -3,6 +3,7 @@ class CreateSections < ActiveRecord::Migration[5.1]
     create_table :sections do |t|
       t.text :text
       t.integer :votes
+      t.integer :composition_id
       t.integer :next_ids, :array => true
       t.integer :prev_id
       t.timestamps
