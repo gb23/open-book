@@ -7,18 +7,23 @@ class Api::SectionsController < ApplicationController
 
     def create
         section = Section.new(section_params)
-        sectionPrev = Section.find_by(id: section.prev_id)
-
-        if section.save
-            sectionPrev.next_ids << section.id
-            if sectionPrev.next_ids[0] == -1
-                sectionPrev.next_ids.shift
-            end
-            sectionPrev.save
-            render json: {section: section, sectionPrev: sectionPrev}
+        if section.prev_id != -1 
+            sectionPrev = Section.find_by(id: section.prev_id)
         else
-            render json: { message: section.errors}, status: 400
+            sectionPrev = nil
         end
+            if section.save
+                if !sectionPrev.nil?
+                    sectionPrev.next_ids << section.id 
+                    if sectionPrev.next_ids[0] == -1
+                        sectionPrev.next_ids.shift
+                    end
+                    sectionPrev.save 
+                end
+                render json: {section: section, sectionPrev: sectionPrev}
+            else
+                render json: { message: section.errors}, status: 400
+            end  
     end
 
     def show
