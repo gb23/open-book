@@ -5,6 +5,7 @@ class CreateSections < ActiveRecord::Migration[5.1]
       t.integer :votes
       t.integer :next_ids, :array => true
       t.integer :prev_id
+      t.boolean :about, :default => false
       t.timestamps
     end
   end
