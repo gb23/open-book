@@ -2,6 +2,7 @@ class Api::SectionsController < ApplicationController
     before_action :set_section, only:[:show, :update, :destroy]
 
     def index
+        #byebug
         render json: Section.all.sort
     end
 
@@ -54,6 +55,6 @@ class Api::SectionsController < ApplicationController
         end
 
         def section_params
-            params.require(:section).permit(:text, :votes, :prev_id, :next_ids => [], )
+            params.require(:section).permit(:text, :votes, :prev_id, :about, :next_ids => [] )
         end
 end 
