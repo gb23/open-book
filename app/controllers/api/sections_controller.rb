@@ -89,7 +89,7 @@ class Api::SectionsController < ApplicationController
                 votes: 3, prev_id: two.id, about: true)
             five = Section.create(text: "[5] Our composition now reads from card [1] to [2] to [4] to [5].  
                  Note that we are continuing the composition to follow card [4].  From the card above, we could also arrow back over to card [3] and 
-                 continue the composition after card 3, too; but let's say we like card [4]'s writing more, 
+                 continue the composition after card [3], too; but let's say we like card [4]'s writing more, 
                  so we choose to continue the composition on this path.  It is now apparent that there can be many paths to choose from.  This is where voting comes in.", 
                  votes: 1, prev_id: four.id, about: true)
             six = Section.create(text: "[6] Each card can be 'liked' by clicking on a thumbs-up icon that is present in the bottom left. 
@@ -108,7 +108,7 @@ class Api::SectionsController < ApplicationController
                 order of creation.  Votes are not taken into account here. If there is a tie between two cards for highest rating in a given row, 
                 the card that was created first is the default shown. If we were to scroll directly above to card [6], this row would shuffle back to
                 to the highest rated version, 'version A'.  That is, the highlighted card will always have the highest ranking cards at each row of the path
-                below it. In this manner, as one highlights cards lower and lower in the composition, one can 'shape the composition' to contain less popular cards, if desired",
+                displayed below it. In this manner, as one highlights cards lower and lower in the composition, one can 'shape the composition' to contain less popular cards, if desired.",
                 votes: 2, prev_id: six.id, about: true)
             ten = Section.create(text: "[10] So that's Card Comp in a nutshell.  It breaks down a composition into cards.  
                 These cards can be thought of as growing in an upsidedown tree-like structure: downward and outward. 
