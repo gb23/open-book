@@ -60,7 +60,7 @@ class Api::SectionsController < ApplicationController
         def remove_and_repopulate_about_data
             sectionTrues = Section.all.select{ |o| o[:about] == true}
             Section.delete(sectionTrues) #delete the 'about' data
-            zero = Section.create(text: "********Welcome to Card Comp text editor!********      
+            zero = Section.create(text: "********Welcome to Open Book Card Composition text editor!********      
                 This is a tutorial explaining how to use Card Comp. Use the down arrow key on your keyboard to go to the next card.", 
                 votes: 10, prev_id: -2, about: true)
             one = Section.create(text: "[1] Often a composition is easier to create when it is broken down into sections or cards.  
